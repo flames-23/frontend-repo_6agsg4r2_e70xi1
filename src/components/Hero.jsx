@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="relative w-full overflow-hidden">
       <div className="relative h-[520px] sm:h-[560px] lg:h-[680px]">
         <Spline
-          scene="https://prod.spline.design/8nsoLg1te84JZcE9/scene.splinecode"
+          scene="https://prod.spline.design/zBXGLjse1OwBSbps/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-[#0f172a]/30 to-white/10" />

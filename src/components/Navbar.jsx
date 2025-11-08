@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShoppingCart, Menu, X } from 'lucide-react';
+import Logo from './Logo';
 
 const Navbar = ({ onCartClick, cartCount }) => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -8,12 +9,15 @@ const Navbar = ({ onCartClick, cartCount }) => {
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="h-16 flex items-center justify-between">
-          <div className="flex items-center gap-8">
-            <a href="#" className="text-2xl font-semibold tracking-tight">
-              <span className="text-black">VIYAN</span>{' '}
-              <span className="bg-gradient-to-r from-violet-600 via-blue-600 to-sky-500 bg-clip-text text-transparent">FASHION WORLD</span>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <a href="#" className="flex items-center gap-3">
+              <Logo size={36} />
+              <span className="text-xl sm:text-2xl font-semibold tracking-tight">
+                <span className="text-black">VIYAN</span>{' '}
+                <span className="bg-gradient-to-r from-violet-600 via-blue-600 to-sky-500 bg-clip-text text-transparent">FASHION WORLD</span>
+              </span>
             </a>
-            <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600">
+            <nav className="hidden md:flex items-center gap-6 text-sm text-slate-600 ml-4">
               <a href="#new" className="hover:text-slate-900 transition">New Arrivals</a>
               <a href="#bestsellers" className="hover:text-slate-900 transition">Best Sellers</a>
               <a href="#summer" className="hover:text-slate-900 transition">Summer</a>
