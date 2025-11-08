@@ -1,49 +1,66 @@
 import React from 'react';
+import Spline from '@splinetool/react-spline';
 
 const Hero = () => {
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-rose-50 via-white to-amber-50" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
-          <div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900">
-              VIYAN FASHION WORLD
-            </h1>
-            <p className="mt-5 text-gray-600 text-lg leading-relaxed max-w-xl">
-              Effortless style for every occasion. Discover curated dresses crafted with premium fabrics and timeless silhouettes — from breezy daywear to statement evening looks.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#new" className="inline-flex items-center justify-center rounded-full bg-gray-900 text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition">
-                Shop New Arrivals
-              </a>
-              <a href="#bestsellers" className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 text-sm font-medium hover:bg-gray-50 transition">
-                View Best Sellers
-              </a>
-            </div>
-            <div className="mt-10 flex items-center gap-6 text-sm text-gray-600">
-              <div>
-                <div className="font-semibold text-gray-900">Free Shipping</div>
-                <div>On orders over $75</div>
+    <section className="relative w-full overflow-hidden">
+      <div className="relative h-[520px] sm:h-[560px] lg:h-[680px]">
+        <Spline
+          scene="https://prod.spline.design/8nsoLg1te84JZcE9/scene.splinecode"
+          style={{ width: '100%', height: '100%' }}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/60 via-[#0f172a]/30 to-white/10" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white drop-shadow">
+                VIYAN FASHION WORLD
+              </h1>
+              <p className="mt-4 text-base sm:text-lg text-slate-100/90 drop-shadow">
+                Effortless style for every occasion. Discover curated dresses crafted with premium fabrics and timeless silhouettes — from breezy daywear to statement evening looks.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#new"
+                  className="inline-flex items-center justify-center rounded-full bg-black text-white px-6 py-3 text-sm font-medium hover:bg-slate-900 transition"
+                >
+                  Shop New Arrivals
+                </a>
+                <a
+                  href="#bestsellers"
+                  className="inline-flex items-center justify-center rounded-full border border-blue-600 text-blue-600 px-6 py-3 text-sm font-medium hover:bg-blue-50 transition"
+                >
+                  View Best Sellers
+                </a>
               </div>
-              <div>
-                <div className="font-semibold text-gray-900">Easy Returns</div>
-                <div>30-day return window</div>
+              <div className="mt-8 flex items-center gap-6 text-sm text-white/90">
+                <div>
+                  <div className="font-semibold">Free Shipping</div>
+                  <div className="text-white/80">On orders over $75</div>
+                </div>
+                <div>
+                  <div className="font-semibold">Easy Returns</div>
+                  <div className="text-white/80">30-day return window</div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="relative">
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/5">
-              <img
-                src="https://images.unsplash.com/photo-1520975682031-a4dd1a5d7c67?q=80&w=1600&auto=format&fit=crop"
-                alt="Model wearing a flowing dress"
-                className="h-full w-full object-cover"
-                loading="eager"
-              />
-            </div>
-            <div className="absolute -bottom-6 -left-6 hidden sm:block bg-white shadow-xl rounded-2xl ring-1 ring-black/5 p-4">
-              <div className="text-xs uppercase tracking-wide text-gray-500">New Season</div>
-              <div className="font-semibold">Linen Summer Collection</div>
+        </div>
+      </div>
+
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="-mt-10 sm:-mt-12 lg:-mt-16 relative z-10">
+            <div className="rounded-3xl bg-white shadow-xl ring-1 ring-black/5 p-5 sm:p-6 lg:p-8">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-slate-700">Handpicked picks</p>
+                  <p className="text-slate-500 text-sm">Modern silhouettes in black, violet, and blue</p>
+                </div>
+                <a href="#new" className="inline-flex items-center rounded-full bg-violet-600 text-white px-4 py-2 text-sm font-medium hover:bg-violet-700 transition">
+                  Explore Collection
+                </a>
+              </div>
             </div>
           </div>
         </div>

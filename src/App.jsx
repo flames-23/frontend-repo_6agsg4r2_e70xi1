@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 
 const App = () => {
   const [cart, setCart] = React.useState([]);
+  const [open, setOpen] = React.useState(false);
+
   const handleAddToCart = (product) => {
     setCart((prev) => {
       const existing = prev.find((p) => p.id === product.id);
@@ -18,10 +20,8 @@ const App = () => {
 
   const cartCount = cart.reduce((sum, p) => sum + p.qty, 0);
 
-  const [open, setOpen] = React.useState(false);
-
   return (
-    <div className="min-h-screen bg-white text-gray-900">
+    <div className="min-h-screen bg-white text-slate-900">
       <Navbar onCartClick={() => setOpen(true)} cartCount={cartCount} />
       <main>
         <Hero />
@@ -35,18 +35,18 @@ const App = () => {
           <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl">
             <div className="flex items-center justify-between p-4 border-b">
               <h3 className="font-semibold">Your Cart</h3>
-              <button onClick={() => setOpen(false)} className="text-sm text-gray-500 hover:text-gray-800">Close</button>
+              <button onClick={() => setOpen(false)} className="text-sm text-slate-600 hover:text-slate-900">Close</button>
             </div>
             <div className="p-4 space-y-4 overflow-y-auto h-[calc(100%-160px)]">
               {cart.length === 0 ? (
-                <p className="text-sm text-gray-600">Your cart is empty.</p>
+                <p className="text-sm text-slate-600">Your cart is empty.</p>
               ) : (
                 cart.map((item) => (
                   <div key={item.id} className="flex items-center gap-3">
                     <img src={item.image} alt={item.name} className="h-16 w-16 rounded object-cover" />
                     <div className="flex-1">
                       <div className="font-medium line-clamp-1">{item.name}</div>
-                      <div className="text-sm text-gray-500">Qty: {item.qty}</div>
+                      <div className="text-sm text-slate-500">Qty: {item.qty}</div>
                     </div>
                     <div className="font-semibold">${(item.price * item.qty).toFixed(2)}</div>
                   </div>
@@ -55,12 +55,15 @@ const App = () => {
             </div>
             <div className="p-4 border-t">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm text-gray-600">Subtotal</span>
+                <span className="text-sm text-slate-600">Subtotal</span>
                 <span className="font-semibold">
                   ${cart.reduce((sum, i) => sum + i.price * i.qty, 0).toFixed(2)}
                 </span>
               </div>
-              <button className="w-full rounded-full bg-rose-600 text-white px-4 py-3 text-sm font-medium hover:bg-rose-700 transition disabled:opacity-50" disabled={cart.length === 0}>
+              <button
+                className="w-full rounded-full bg-gradient-to-r from-violet-600 via-blue-600 to-sky-500 text-white px-4 py-3 text-sm font-medium hover:from-violet-700 hover:via-blue-700 hover:to-sky-600 transition disabled:opacity-50"
+                disabled={cart.length === 0}
+              >
                 Checkout
               </button>
             </div>
