@@ -1,28 +1,74 @@
-import { useState } from 'react'
+import React from 'react';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import ProductGrid from './components/ProductGrid';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [cart, setCart] = React.useState([]);
+  const handleAddToCart = (product) => {
+    setCart((prev) => {
+      const existing = prev.find((p) => p.id === product.id);
+      if (existing) {
+        return prev.map((p) => (p.id === product.id ? { ...p, qty: p.qty + 1 } : p));
+      }
+      return [...prev, { ...product, qty: 1 }];
+    });
+  };
+
+  const cartCount = cart.reduce((sum, p) => sum + p.qty, 0);
+
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div className="min-h-screen bg-white text-gray-900">
+      <Navbar onCartClick={() => setOpen(true)} cartCount={cartCount} />
+      <main>
+        <Hero />
+        <ProductGrid onAddToCart={handleAddToCart} />
+      </main>
+      <Footer />
 
-export default App
+      {open && (
+        <div className="fixed inset-0 z-50">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
+          <div className="absolute right-0 top-0 h-full w-full max-w-md bg-white shadow-xl">
+            <div className="flex items-center justify-between p-4 border-b">
+              <h3 className="font-semibold">Your Cart</h3>
+              <button onClick={() => setOpen(false)} className="text-sm text-gray-500 hover:text-gray-800">Close</button>
+            </div>
+            <div className="p-4 space-y-4 overflow-y-auto h-[calc(100%-160px)]">
+              {cart.length === 0 ? (
+                <p className="text-sm text-gray-600">Your cart is empty.</p>
+              ) : (
+                cart.map((item) => (
+                  <div key={item.id} className="flex items-center gap-3">
+                    <img src={item.image} alt={item.name} className="h-16 w-16 rounded object-cover" />
+                    <div className="flex-1">
+                      <div className="font-medium line-clamp-1">{item.name}</div>
+                      <div className="text-sm text-gray-500">Qty: {item.qty}</div>
+                    </div>
+                    <div className="font-semibold">${(item.price * item.qty).toFixed(2)}</div>
+                  </div>
+                ))
+              )}
+            </div>
+            <div className="p-4 border-t">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-sm text-gray-600">Subtotal</span>
+                <span className="font-semibold">
+                  ${cart.reduce((sum, i) => sum + i.price * i.qty, 0).toFixed(2)}
+                </span>
+              </div>
+              <button className="w-full rounded-full bg-rose-600 text-white px-4 py-3 text-sm font-medium hover:bg-rose-700 transition disabled:opacity-50" disabled={cart.length === 0}>
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default App;
