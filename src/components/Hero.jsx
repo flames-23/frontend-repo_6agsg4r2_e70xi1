@@ -8,10 +8,10 @@ const Hero = () => {
         <div className="py-20 lg:py-28 grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900">
-              Effortless Style for Every Occasion
+              VIYAN FASHION WORLD
             </h1>
             <p className="mt-5 text-gray-600 text-lg leading-relaxed max-w-xl">
-              Discover curated dresses crafted with premium fabrics and timeless silhouettes. From breezy daywear to statement evening looks — we’ve got your next favorite outfit.
+              Effortless style for every occasion. Discover curated dresses crafted with premium fabrics and timeless silhouettes — from breezy daywear to statement evening looks.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#new" className="inline-flex items-center justify-center rounded-full bg-gray-900 text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition">

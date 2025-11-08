@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Dressy Boutique. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} VIYAN FASHION WORLD. All rights reserved.</p>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-gray-700">Privacy</a>
             <a href="#" className="hover:text-gray-700">Terms</a>

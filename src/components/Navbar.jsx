@@ -10,8 +10,7 @@ const Navbar = ({ onCartClick, cartCount }) => {
         <div className="h-16 flex items-center justify-between">
           <div className="flex items-center gap-8">
             <a href="#" className="text-2xl font-semibold tracking-tight">
-              Dressy
-              <span className="text-rose-500">Boutique</span>
+              VIYAN <span className="text-rose-500">FASHION WORLD</span>
             </a>
             <nav className="hidden md:flex items-center gap-6 text-sm text-gray-600">
               <a href="#new" className="hover:text-gray-900 transition">New Arrivals</a>
